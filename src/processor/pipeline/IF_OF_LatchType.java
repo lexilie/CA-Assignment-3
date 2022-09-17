@@ -1,4 +1,5 @@
 package processor.pipeline;
+import java.util.PrimitiveIterator.OfInt;
 
 public class IF_OF_LatchType {
 	
@@ -9,7 +10,13 @@ public class IF_OF_LatchType {
 	{
 		OF_enable = false;
 	}
-
+	public IF_OF_LatchType(boolean oF_enable) {
+		OF_enable = oF_enable;
+	}
+	public IF_OF_LatchType(boolean oF_enable, int instruction) {
+		OF_enable = oF_enable;
+		this.instruction = instruction;
+	}
 	public boolean isOF_enable() {
 		return OF_enable;
 	}
