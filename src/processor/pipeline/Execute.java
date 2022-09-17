@@ -238,7 +238,7 @@ public class Execute {
 					imm = instruction.getDestinationOperand().getValue();
 
 				alu_result = imm + currentPC;
-				EX_IF_Latch.setIS_enable(true, alu_result);
+				EX_IF_Latch.setEnable(true, alu_result);
 			}
 			else if(opcode < 29) {
 
@@ -256,14 +256,14 @@ public class Execute {
 						if(op1 == op2) {
 
 							alu_result = imm + currentPC;
-							EX_IF_Latch.setIS_enable(true, alu_result);
+							EX_IF_Latch.setEnable(true, alu_result);
 						}
 						break;
 					case bne:
 						if(op1 != op2) {
 
 							alu_result = imm + currentPC;
-							EX_IF_Latch.setIS_enable(true, alu_result);
+							EX_IF_Latch.setEnable(true, alu_result);
 						}
 
 						break;
@@ -271,25 +271,25 @@ public class Execute {
 						if(op1 < op2) {
 
 							alu_result = imm + currentPC;
-							EX_IF_Latch.setIS_enable(true, alu_result);
+							EX_IF_Latch.setEnable(true, alu_result);
 						}
 						break;
 					case bgt:
 						if(op1 > op2) {
 
 							alu_result = imm + currentPC;
-							EX_IF_Latch.setIS_enable(true, alu_result);
+							EX_IF_Latch.setEnable(true, alu_result);
 						}
 						break;
 					default:
 						break;
 				}
 			}
-			EX_MA_Latch.setALU_result(alu_result);
+			EX_MA_Latch.setaluResult(alu_result);
 		}
 
 		OF_EX_Latch.setEX_enable(false);
-		EX_MA_Latch.setMA_enable(true);
+		EX_MA_Latch.setenableMA(true);
 	}
 
 }

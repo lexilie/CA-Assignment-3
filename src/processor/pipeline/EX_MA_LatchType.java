@@ -1,5 +1,7 @@
 package processor.pipeline;
 
+import generic.Instruction;
+
 public class EX_MA_LatchType {
 
 	boolean enableMA;

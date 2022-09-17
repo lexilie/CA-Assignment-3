@@ -29,11 +29,11 @@ public class MemoryAccess {
 	
 	public void performMA() {
 	
-		if(EX_MA_Latch.isMA_enable()) {
+		if(EX_MA_Latch.isenableMA()) {
 	
 			Instruction instruction = EX_MA_Latch.getInstruction();
 			OperationType op_type = instruction.getOperationType();
-			int alu_result = EX_MA_Latch.getALU_result();
+			int alu_result = EX_MA_Latch.getaluResult();
 			MA_RW_Latch.setALU_result(alu_result);
 	
 			if (op_type == OperationType.load) {
@@ -49,7 +49,7 @@ public class MemoryAccess {
 			}
 	
 			MA_RW_Latch.setInstruction(instruction);
-			EX_MA_Latch.setMA_enable(false);
+			EX_MA_Latch.setenableMA(false);
 			MA_RW_Latch.setRW_enable(true);
 		}
 	}
